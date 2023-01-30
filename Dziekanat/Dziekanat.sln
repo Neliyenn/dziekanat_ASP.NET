@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dziekanat", "Dziekanat\Dziekanat.csproj", "{D7B81A4E-95D0-497B-B3BA-15AA22486CBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dziekanat", "Dziekanat\Dziekanat.csproj", "{D7B81A4E-95D0-497B-B3BA-15AA22486CBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorClass", "RazorClass\RazorClass.csproj", "{ABD2E39D-07B1-4935-9B5E-B3920E792D3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+@@ -15,6 +17,10 @@ Global
+		{D7B81A4E-95D0-497B-B3BA-15AA22486CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B81A4E-95D0-497B-B3BA-15AA22486CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B81A4E-95D0-497B-B3BA-15AA22486CBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABD2E39D-07B1-4935-9B5E-B3920E792D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD2E39D-07B1-4935-9B5E-B3920E792D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD2E39D-07B1-4935-9B5E-B3920E792D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD2E39D-07B1-4935-9B5E-B3920E792D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41158B13-3135-49D8-B5D3-C64B62C1F8F8}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,61 @@
+{
+  "SerializedFilePath": "f:\\Dziekanat ASP.NET\\dziekanat_ASP.NET\\Dziekanat\\obj\\Debug\\net5.0\\project.razor.json",
+  "FilePath": "f:\\Dziekanat ASP.NET\\dziekanat_ASP.NET\\Dziekanat\\Dziekanat.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-3.0",
+    "LanguageVersion": "5.0",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-3.0"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 900
+  },
+  "RootNamespace": "Dziekanat",
+  "Documents": [
+    {
+      "FilePath": "f:\\Dziekanat ASP.NET\\dziekanat_ASP.NET\\Dziekanat\\Views\\Home\\Plan_Zajec.cshtml",
+      "TargetPath": "Views\\Home\\Plan_Zajec.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Dziekanat ASP.NET\\dziekanat_ASP.NET\\Dziekanat\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Dziekanat ASP.NET\\dziekanat_ASP.NET\\Dziekanat\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Dziekanat ASP.NET\\dziekanat_ASP.NET\\Dziekanat\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Dziekanat ASP.NET\\dziekanat_ASP.NET\\Dziekanat\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Dziekanat ASP.NET\\dziekanat_ASP.NET\\Dziekanat\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Dziekanat ASP.NET\\dziekanat_ASP.NET\\Dziekanat\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\Dziekanat ASP.NET\\dziekanat_ASP.NET\\Dziekanat\\Views\\Home\\Ogloszenia.cshtml",
+      "TargetPath": "Views\\Home\\Ogloszenia.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
+  "SerializationFormat": "0.3"
+}

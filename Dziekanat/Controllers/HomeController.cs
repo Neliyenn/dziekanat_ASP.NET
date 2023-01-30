@@ -1,3 +1,5 @@
+using Dziekanat.Data;
+using Dziekanat.Interfaces;
 using Dziekanat.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,9 +12,13 @@ namespace Dziekanat.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DziekanatContext _context;
+        private readonly IObslugaBazyDanych obslugaBazyDanych;
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(DziekanatContext context, IObslugaBazyDanych serwis, ILogger<HomeController> logger)
         {
+            _context = context;
+            obslugaBazyDanych = serwis;
             _logger = logger;
         }
 
@@ -22,7 +28,38 @@ namespace Dziekanat.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        [Route("Register_Error")]
+        public IActionResult Register(string login, string password)
+        {
+
+            User user = obslugaBazyDanych.LoginUser(login, password);
+            if (user != null)
+            {
+                if (user.Type == "student")
+                {
+                    Student student = obslugaBazyDanych.SetStudent(user);
+                }
+                return View("./Dashboard", new { test = user.ID });
+                Response.Redirect("/Dashboard");
+                return View("./Dashboard");
+            }
+            else
+            {
+                ViewBag.info = "Nie poprawny login lub has³o";
+                // Response.Redirect("/Index");
+                return View("./Index");
+            }
+
+        }
+
+        [HttpGet]
+        [Route("Dashboard")]
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
         [HttpGet]
         [Route("Ogloszenia")]
         public IActionResult Ogloszenia()

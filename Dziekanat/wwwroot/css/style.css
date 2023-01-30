@@ -7,9 +7,18 @@
     src: url("../fonts/Poppins-Regular.ttf");
 }
 
+@font-face {
+    font-family: poppins-bold;
+    src: url("../fonts/Poppins-Bold.ttf");
+}
+
+html {
+    overflow-x: hidden;
+}
+
 header {
-    height: 13.340448239060832vh;
-    width: 100vw;
+    height: 115px;
+    width: 100%;
     background-color: #6391CF;
     display: flex;
     align-items: center;
@@ -24,7 +33,7 @@ header {
 }
 
 .navigation-buttons {
-    width: 28.645833333333332vw;
+    width: 550px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,4 +46,22 @@ header {
     font-weight: normal;
     text-decoration: none;
     font-size: 1.25rem;
+    padding: 5px;
+    transition: 0.5s;
+    border-radius: 4px;
+}
+
+.navigation-buttons a:hover {
+        background-color: #1b293336;
+        color: #1B2933;
+    }
+
+footer {
+    height: 6.481481481481482vh;
+    background-color: #6391CF;
+    text-align: center;
+    display: flex;
+    font-family: poppins-regular;
+    align-items: center;
+    justify-content: center;
 }
