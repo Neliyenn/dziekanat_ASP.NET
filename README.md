@@ -21,7 +21,7 @@ Dwukrotne klikniêcie na plik Dziekanat.sln powinno otworzyæ na ekranie rozwiazan
 
 
 
-Widok w przegladarce powinien byæ jak ponie¿ej. ! Nale¿y upewniæ siê, ¿e w adresie znajduje siê poprawny localhost : ```5001``` .
+Widok w przegladarce powinien byæ jak ponie¿ej. * ! Nale¿y upewniæ siê, ¿e w adresie znajduje siê poprawny localhost : ```5001``` . *
 
 ![image](https://user-images.githubusercontent.com/65779777/218801491-9dba5033-a547-4db0-a68c-f2738511afb0.png)
 
@@ -44,7 +44,4 @@ Login : ```student2```
 Has³o : ```student2```
 
 ![image](https://user-images.githubusercontent.com/65779777/218806697-6ad1f6a6-59da-419e-8cec-18dca917bbf9.png)
-
-
-
 
