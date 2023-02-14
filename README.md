@@ -21,13 +21,13 @@ Dwukrotne klikniêcie na plik Dziekanat.sln powinno otworzyæ na ekranie rozwiazan
 
 
 
-Widok w przegladarce powinien byæ jak ponie¿ej. * ! Nale¿y upewniæ siê, ¿e w adresie znajduje siê poprawny localhost : ```5001``` . *
+Widok w przegladarce powinien byæ jak ponie¿ej. Nale¿y upewniæ siê, ¿e w adresie znajduje siê poprawny localhost : `5001` .
 
 ![image](https://user-images.githubusercontent.com/65779777/218801491-9dba5033-a547-4db0-a68c-f2738511afb0.png)
 
 
 
-Nastêpnie nale¿y ponownie otworzyæ folder z repozytorium w programie Visual Studio Community Edition. Otworzyæ plik Dziekanat.sln i na górnym pasku wybraæ DziekantBlazor, a nastêpnie go uruchomiæ. ! Nale¿y upewniæ siê, ¿e w adresie znajduje siê poprawny localhost : ```5002``` .
+Nastêpnie nale¿y ponownie otworzyæ folder z repozytorium w programie Visual Studio Community Edition. Otworzyæ plik Dziekanat.sln i na górnym pasku wybraæ DziekantBlazor, a nastêpnie go uruchomiæ. Nale¿y upewniæ siê, ¿e w adresie znajduje siê poprawny localhost : `5002` .
 
 ![image](https://user-images.githubusercontent.com/65779777/218805771-c4b93823-1c4c-4500-bfac-c549f9ac52ea.png)
 
@@ -35,13 +35,14 @@ Nastêpnie nale¿y ponownie otworzyæ folder z repozytorium w programie Visual Stud
 ### Logowanie danymi z bazy
 Poprawnie uruchomiona aplikacja powinna pozwoliæ u¿ytkownikowi na zalogowanie siê po wpisaniu danych: 
 
-Login : ```student1```
-Has³o : ```student1```
+Login : `student1`
+Has³o : `student1`
 
 LUB
 
-Login : ```student2```
-Has³o : ```student2```
+Login : `student2`
+Has³o : `student2`
+
+POLE LOGINU I HAS£A JEST CASE SENSITIVE. Nale¿y zwróciæ uwagê na poprawnoœæ wpisywanych danych równie¿ od stwony wielkich i ma³ych liter. 
 
 ![image](https://user-images.githubusercontent.com/65779777/218806697-6ad1f6a6-59da-419e-8cec-18dca917bbf9.png)
-
