@@ -4,7 +4,7 @@
 Repozytorium aplikacji nale¿y pobraæ, a nastêpnie rozpakowacæ i otworzyæ w programie Visual Studio Community Edition. 
 Dwukrotne klikniêcie na plik Dziekanat.sln powinno otworzyæ na ekranie rozwiazanie aplikacji "Dziekanat". Na górnym pasku nale¿y wybraæ opcjê jak na screenie, aby uruchomiæ back end aplikacji.
 
-![image](https://user-images.githubusercontent.com/65779777/218801062-34b0e7fe-8f63-433e-bec8-8a55515bd33c.png)
+![image](https://user-images.githubusercontent.com/65779777/218805863-468df4ef-c2fe-4e42-9132-1d5a855b0b9e.png)
 
 
 Widok w przegladarce powinien byæ jak ponie¿ej. Host : ```5001```
@@ -15,4 +15,4 @@ Widok w przegladarce powinien byæ jak ponie¿ej. Host : ```5001```
 
 Nastêpnie nale¿y ponownie otworzyæ folder z repozytorium w programie Visual Studio Community Edition. Otworzyæ plik Dziekanat.sln i na górnym pasku wybraæ DziekantBlazor, a nastêpnie go uruchomiæ.
 
-![image](https://user-images.githubusercontent.com/65779777/218801840-14cd9664-5489-46b0-9ccd-e52a56b2c555.png)
+![image](https://user-images.githubusercontent.com/65779777/218805771-c4b93823-1c4c-4500-bfac-c549f9ac52ea.png)
