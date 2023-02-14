@@ -1,5 +1,4 @@
-using Dziekanat.Data;
-using Dziekanat.Interfaces;
+﻿using Dziekanat.Database;
 using Dziekanat.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -7,71 +6,104 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+
 namespace Dziekanat.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly DziekanatContext _context;
         private readonly IObslugaBazyDanych obslugaBazyDanych;
         private readonly ILogger<HomeController> _logger;
-        public HomeController(DziekanatContext context, IObslugaBazyDanych serwis, ILogger<HomeController> logger)
+
+        public HomeController(DziekanatContext context, IObslugaBazyDanych serwis,ILogger<HomeController> logger)
         {
             _context = context;
             obslugaBazyDanych = serwis;
             _logger = logger;
+            
         }
 
-        
-        public IActionResult Index()
+
+        // public IActionResult Index()
+        // {
+        //     return View();
+        // }
+
+        [HttpGet]
+        [Route("Login")]
+        public ActionResult Login(string login, string password)
         {
-            return View();
+            
+            User user = obslugaBazyDanych.LoginUser(login,password);
+            if(user != null){
+                return Ok(user);
+            }else{
+                return BadRequest();
+            }
+
+        }
+
+
+        [HttpGet]
+        [Route("GetAdmin")]
+        public ActionResult GetAdmin(int userID)
+        {
+            Admin admin = obslugaBazyDanych.SetAdmin(userID);
+            if(admin != null){
+                return Ok(admin);
+            }else{
+                return BadRequest();
+            }
+
+        }
+
+        [HttpGet]
+        [Route("GetStudent")]
+        public ActionResult GetStudent(int userID)
+        {
+            Student student = obslugaBazyDanych.SetStudent(userID);
+            if(student != null){
+                return Ok(student);
+            }else{
+                return BadRequest();
+            }
+
+        }
+
+        [HttpGet]
+        [Route("GetZajecia")]
+        public ActionResult GetZajecia(int studentID)
+        {
+            List<Zajecia> zajecia = obslugaBazyDanych.GetZajecia(studentID);
+            if(zajecia != null){
+                return Ok(zajecia);
+            }else{
+                return BadRequest();
+            }
+        }
+
+        public IObslugaBazyDanych GetObslugaBazyDanych()
+        {
+            return obslugaBazyDanych;
         }
 
         [HttpPost]
-        [Route("Register_Error")]
-        public IActionResult Register(string login, string password)
+        [Route("ZmianaHaslaAsync/{userID}/{password}/{newpassword}")]
+        public async Task<ActionResult> ZmianaHaslaAsync(int userID,string password,string newpassword)
         {
-
-            User user = obslugaBazyDanych.LoginUser(login, password);
-            if (user != null)
-            {
-                if (user.Type == "student")
-                {
-                    Student student = obslugaBazyDanych.SetStudent(user);
-                }
-                return View("./Dashboard", new { test = user.ID });
-                Response.Redirect("/Dashboard");
-                return View("./Dashboard");
+            bool result = await obslugaBazyDanych.ZmianaHasla(userID, password, newpassword);
+            if(result){
+                Console.WriteLine("Zmieniono Hasło");
+                return Ok();
+            }else{
+                Console.WriteLine("Nie zmieniono hasła");
+                return BadRequest();
             }
-            else
-            {
-                ViewBag.info = "Nie poprawny login lub has�o";
-                // Response.Redirect("/Index");
-                return View("./Index");
-            }
-
         }
 
-        [HttpGet]
-        [Route("Dashboard")]
-        public IActionResult Dashboard()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        [Route("Ogloszenia")]
-        public IActionResult Ogloszenia()
-        {
-            return View();
-        }
-        [HttpGet]
-        [Route("Plan_Zajec")]
-        public IActionResult Plan_Zajec()
-        {
-            return View();
-        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

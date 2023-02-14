@@ -1,0 +1,118 @@
+@page "/student_dane"
+@using DziekanatBlazor.Models
+
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<StudentMenu user="@user" student="@student"></StudentMenu>
+
+
+
+<div class="content">
+
+    <div class="buttons">
+        <button class="@styl_osobowe" @onclick='@(() => SetCard("osobowe"))'>Osobowe</button>
+        <button class="@styl_adres" @onclick='@(() => SetCard("adres"))'>Adresy</button>
+        <button class="@styl_szkola" @onclick='@(() => SetCard("szkola"))'>Wykształcenie</button> 
+    </div>
+    @if(osobowe){
+        <div class="title">
+            Dane osobowe
+        </div>
+
+        <div class="dane">
+            <p>Nazwisko: @user.LastName</p>
+            <p>Imię: @user.FirstName</p>
+            <p>Pesel: @student.pesel</p>
+            <p>Miejsce urodzenia: @student.miejsce_urodzenia</p>
+            @if(student.plec){
+                <p>Płeć: Mężczyzna</p>
+            }else{
+                <p>Płeć: Kobieta</p>
+            }
+            <p>Stan cywilny: @student.stan_cywilny</p>
+            <p>Obywatelstwo: @student.obywatelstwo</p>
+            <p>Seria i numer dowodu osobistego: @student.nr_dowodu</p>
+            <p>Numer książeczki wojskowej: @student.nr_wojskowy</p>
+            <p>Imię matki: @student.imie_matki</p>
+            <p>Imię ojca: @student.imie_ojca</p>
+        </div>
+    }
+
+    @if(adres){
+        <div class="title">
+            Adres zameldowania
+        </div>
+
+        <div class="dane">
+            <p>Ulica: @student.ulica</p>
+            <p>Kod pocztowy: @student.kod_pocztowy</p>
+            <p>Miejscowość: @student.miejscowosc</p>
+        </div>
+
+        <div class="title">
+            Dane kontaktowe
+        </div>
+
+        <div class="dane">
+            <p>Email: @student.email</p>
+            <p>Numer telefonu: @student.telefon</p>
+        </div>
+    }
+
+     @if(szkola){
+        <div class="title">
+            Szkoła średnia
+        </div>
+
+        <div class="dane">
+            <p>Numer świadectwa maturalnego: @student.nr_matury</p>
+            <p>Data wydania: @student.rok_wydania</p>
+            <p>Rok ukończenia: @student.rok_ukonczenia</p>
+            <p>Szkoła: @student.szkola</p>
+            <p>Rodzaj matury: @student.rodzaj_matura</p>
+        </div>
+    }
+    
+</div>
+
+@functions{
+
+    public bool osobowe = true;
+    public bool adres = false;
+    public bool szkola = false;
+    private string styl_osobowe => osobowe ? "active" : "";
+    private string styl_adres => adres ? "active" : "";
+    private string styl_szkola => szkola ? "active" : "";
+    public Student student = new Student();
+    public User user = new User();
+    protected override async Task OnInitializedAsync()
+    {
+            try{
+                user = await sessionStorage.GetItemAsync<User>("User");
+                if(user.ID != 0){
+                    student = await Http.GetFromJsonAsync<Student>("https://localhost:5001/GetStudent?userID="+user.ID);
+                }else{
+                    NavManager.NavigateTo("/");
+                }
+
+            }catch{
+                NavManager.NavigateTo("/");
+            }
+    }
+
+    public void SetCard(string card){
+        osobowe = false;
+        adres = false;
+        szkola = false;
+
+        if(card == "osobowe"){
+            osobowe = true;
+        }else if(card == "adres"){
+            adres = true;
+        }else if(card == "szkola"){
+            szkola = true;
+        }
+    }
+}

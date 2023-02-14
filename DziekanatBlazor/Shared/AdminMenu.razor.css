@@ -1,0 +1,25 @@
+.menu {
+    width: 421px;
+    background: #F1F2F4;
+    min-height: calc(100vh - 6.481481481481482vh - 115px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu img {
+    height: 120px;
+    width: 120px;
+    margin-top: 35px;
+}
+
+.menu .name {
+    margin-top: 15px;
+    font-family: poppins-regular;
+    text-transform: capitalize;
+}
+
+.menu .level {
+    font-family: poppins-regular;
+    margin-top: 5px;
+}

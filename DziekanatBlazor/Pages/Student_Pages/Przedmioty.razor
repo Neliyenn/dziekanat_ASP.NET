@@ -1,0 +1,66 @@
+@page "/student_przedmioty"
+@using DziekanatBlazor.Models
+
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<StudentMenu user="@user" student="@student"></StudentMenu>
+
+
+
+<div class="content">
+    <div class="title">
+        Przedmioty i oceny
+    </div>
+
+    <div class="dane">
+        <div class="przedmiot_tytul">
+            <p>Nazwa przedmiotu</p>
+            <p>Grupa</p>
+            <p>Prowadzący</p>
+            <p>Forma zajęć</p>
+            <p>Zaliczenie</p>
+            <p>Punkty ECTS</p>
+            <p>Termin</p>
+            <p>Ocena</p>
+        </div>
+        @foreach (var item in zajecia)
+        {
+            <div class="przedmiot">
+                <p>@item.nazwa</p>
+                <p>@item.grupa</p>
+                <p>@item.prowadzacy</p>
+                <p>@item.forma</p>
+                <p>@item.zaliczenie</p>
+                <p>@item.ects</p>
+                <p>@item.termin</p>
+                <p>@item.ocena</p>
+            </div>
+        }
+    </div>
+    
+    
+</div>
+
+@functions{
+    public Student student = new Student();
+    public User user = new User();
+    public List<Zajecia> zajecia = new List<Zajecia>();
+    protected override async Task OnInitializedAsync()
+    {
+            try{
+                user = await sessionStorage.GetItemAsync<User>("User");
+                if(user.ID != 0){
+                    student = await Http.GetFromJsonAsync<Student>("https://localhost:5001/GetStudent?userID="+user.ID);
+                    zajecia = await Http.GetFromJsonAsync<List<Zajecia>>("https://localhost:5001/GetZajecia?studentID="+user.ID);
+                }else{
+                    NavManager.NavigateTo("/");
+                }
+
+            }catch{
+                NavManager.NavigateTo("/");
+            }
+    }
+
+}

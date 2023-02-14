@@ -1,0 +1,32 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="header">
+        <div class="header-container">
+            <img src="/img/LOGO.png" alt=""> 
+            <div class="navigation-buttons">
+                <NavLink class="nav-link" href="/">
+                    <span>Strona główna</span>
+                </NavLink>
+
+                <NavLink class="nav-link" href="ogloszenia">
+                    <span>Ogłoszenia</span>
+                </NavLink>
+
+                <NavLink class="nav-link" href="plan_zajec">
+                    <span>Plan zajęć</span>
+                </NavLink>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        @Body
+    </div>
+
+    <div class="footer">
+        Dziekanat by Aleksandra Jaworska
+    </div>
+
+
+</div>

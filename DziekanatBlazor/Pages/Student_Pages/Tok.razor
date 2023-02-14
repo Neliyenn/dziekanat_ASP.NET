@@ -1,0 +1,60 @@
+@page "/student_tok"
+@using DziekanatBlazor.Models
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<StudentMenu user="@user" student="@student"></StudentMenu>
+
+
+
+<div class="content">
+
+    <div class="title">
+        Dane dotyczące studiów
+    </div>
+
+    <div class="dane">
+        <p>Tok studiów: @student.tok_studiow</p>
+        <p>Numer albumu: @student.nr_albumu</p>
+        <p>Numer legitymacji: @student.nr_albumu</p>
+        <p>Status studenta: @student.status</p>
+        <p>Rok | Semestr: @student.rok | @student.semestr</p>
+        <p>Tryb studiów: @student.tryb</p>
+        <p>Wydział: @student.wydzial</p>
+        <p>Kierunek: @student.kierunek</p>
+        <p>Specjalność: @student.specjalnosc</p>
+        <p>Specjalizacja: @student.specjalizacja</p>
+        <p>Uzyskiwany tytuł: @student.uzyskiwany_tytul</p>
+        <p>Semestr akademicki naboru: @student.semestr_naboru</p>
+        <p>Data rozpoczęcia: @student.data_rozpoczecia</p>
+        <p>Przewidywana data zakończenia studiów: @student.data_zakonczenia</p>
+        @if(student.tok_indywidualny){ 
+            <p>Tok indywidualny: Tak</p>
+        }else{
+            <p>Tok indywidualny: Nie</p>
+        }
+    </div>
+    
+</div>
+
+@functions{
+
+    public Student student = new Student();
+    public User user = new User();
+    protected override async Task OnInitializedAsync()
+    {
+            try{
+                user = await sessionStorage.GetItemAsync<User>("User");
+                if(user.ID != 0){
+                    student = await Http.GetFromJsonAsync<Student>("https://localhost:5001/GetStudent?userID="+user.ID);
+                }else{
+                    NavManager.NavigateTo("/");
+                }
+
+            }catch{
+                NavManager.NavigateTo("/");
+            }
+    }
+
+}

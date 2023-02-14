@@ -1,21 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Dziekanat</title>
+    <title>Dziekanat - @ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/style.css?2" />
     <link rel="stylesheet" href="~/css/style_index.css?2" />
-    <title>Dziekanat - @ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/css/style.css" />
 </head>
 <body>
     <header>
         <div class="header-container">
-            <img src="~/img/LOGO.png" alt="">
+            <img src="~/img/LOGO.png" alt=""> 
             <div class="navigation-buttons">
                 <a asp-action="Index">Strona główna</a>
-                <a asp-action="Ogloszenia">Ogłoszenia</a>
+                <a asp-action="Ogloszenia">Ogłoszenia</a> 
                 <a asp-action="Plan_Zajec">Plan zajęć</a>
             </div>
         </div>
@@ -25,12 +23,11 @@
     </main>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - Dziekanat
-            2021 &copy; Dziekanat by Adrian Rogowski
+             2021 &copy; Dziekanat by Aleksandra Jaworska
         </div>
     </footer>
+    <script src="~/_framework/blazor.server.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -1,4 +1,5 @@
-using Dziekanat.Data;
+using Dziekanat.Database;
+using Dziekanat.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,13 +39,13 @@ namespace Dziekanat
                     logger.LogError(ex, "An error occurred creating the DB.");
                 }
             }
+        }
 
-            public static IHostBuilder CreateHostBuilder(string[] args) =>
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        }
     }
 }

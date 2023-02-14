@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
 }
 
@@ -52,9 +52,9 @@ header {
 }
 
 .navigation-buttons a:hover {
-        background-color: #1b293336;
-        color: #1B2933;
-    }
+    background-color: #1b293336;
+    color: #1B2933;
+}
 
 footer {
     height: 6.481481481481482vh;

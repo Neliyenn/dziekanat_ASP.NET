@@ -1,0 +1,61 @@
+﻿@page "/dashboard"
+@using DziekanatBlazor.Models
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject NavigationManager NavManager
+@inject HttpClient Http
+
+@if(admin.ID != 0){
+    <AdminMenu user="@user" admin="@admin"></AdminMenu>
+}else if(student.ID != 0){
+    <StudentMenu user="@user" student="@student"></StudentMenu>
+}else if(lecturer.ID != 0){
+    <div>lecturer</div>
+}
+
+
+    <div class="content">
+        <h1>Witamy w wirtualnym dziekanacie</h1>
+        <h2>Serwis ten ułatwi Państwu uzyskanie wszelkich potrzebnych informacji związanych z wyższą uczelnią.</h2>
+
+        <div class="ogloszenia_content">
+            <h3>Ogłoszenia</h3>
+            <div class="ogloszenia">
+                <div class="ogloszenie">
+                    <h4>Wiadomosc</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, error modi ab sint aspernatur impedit, vel cumque nesciunt quidem ad nam vero veniam laborum reiciendis ex recusandae expedita perspiciatis! Totam.</p>
+                </div>
+                <div class="ogloszenie">
+                    <h4>Wiadomosc</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, error modi ab sint aspernatur impedit, vel cumque nesciunt quidem ad nam vero veniam laborum reiciendis ex recusandae expedita perspiciatis! Totam.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@functions{
+
+    public Admin admin = new Admin();
+    public Student student = new Student();
+    public Lecturer lecturer = new Lecturer();
+    public User user = new User();
+    protected override async Task OnInitializedAsync()
+    {
+            try{
+                user = await sessionStorage.GetItemAsync<User>("User");
+                if(user.ID != 0){
+                    if(user.Type == "admin"){
+                        admin = await Http.GetFromJsonAsync<Admin>("https://localhost:5001/GetAdmin?userID="+user.ID);
+                    }else if(user.Type=="student"){
+                        student = await Http.GetFromJsonAsync<Student>("https://localhost:5001/GetStudent?userID="+user.ID);
+                    }else if(user.Type == "lecturer"){
+
+                    }
+                }else{
+                    NavManager.NavigateTo("/");
+                }
+
+            }catch{
+                NavManager.NavigateTo("/");
+            }
+    }
+}

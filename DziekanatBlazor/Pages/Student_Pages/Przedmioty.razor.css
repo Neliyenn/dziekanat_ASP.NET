@@ -1,0 +1,44 @@
+.content {
+    display: flex;
+    min-height: calc(100vh - 6.481481481481482vh - 115px);
+    width: calc(100vw - 421px);
+    flex-direction: column;
+    align-items: center;
+}
+
+.content .title {
+    width: 90%;
+    background: #E1E6ED;
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 14px;
+    text-align: center;
+    font-family: poppins-regular;
+    font-weight: 600;
+}
+
+.content .dane {
+    width: 90%;
+    margin-top: 35px;
+}
+
+.content .dane p {
+    font-family: poppins-regular;
+    font-size: 1.125rem;
+    margin-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    align-self: center;
+}
+
+.content .dane .przedmiot,
+.content .dane .przedmiot_tytul {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    transition: 0.5s;
+    border-bottom: 3px solid #E1E6ED;
+}
+
+.content .dane .przedmiot:hover {
+    background-color: #E1E6ED;
+}

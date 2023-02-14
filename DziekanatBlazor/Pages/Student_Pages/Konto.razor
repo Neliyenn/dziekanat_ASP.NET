@@ -1,0 +1,45 @@
+@page "/student_konto"
+@using DziekanatBlazor.Models
+@inject HttpClient Http
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject NavigationManager NavManager
+
+<StudentMenu user="@user" student="@student"></StudentMenu>
+
+<div class="content">
+    <label for="">Zmiana Hasła</label>
+    <br>
+    <input type="text" @bind="newpassword">
+    <button @onclick="ZmianaHasla">Zmień</button>
+</div>
+
+@code{
+    
+    public Student student = new Student();
+    public User user = new User();
+    public string newpassword;
+    protected override async Task OnInitializedAsync()
+    {
+            try{
+                user = await sessionStorage.GetItemAsync<User>("User");
+                if(user.ID != 0){
+                    student = await Http.GetFromJsonAsync<Student>("https://localhost:5001/GetStudent?userID="+user.ID);
+                }else{
+                    NavManager.NavigateTo("/");
+                }
+
+            }catch{
+                NavManager.NavigateTo("/");
+            }
+    }
+
+    async Task ZmianaHasla()
+    {
+        var result = await Http.PostAsJsonAsync($"https://localhost:5001/ZmianaHaslaAsync/{user.ID}/{user.Pass}/{newpassword}",0);
+        if(result.IsSuccessStatusCode){
+            user.Pass = newpassword;
+            await sessionStorage.SetItemAsync("User",user);
+        }else{
+        }
+    }
+}

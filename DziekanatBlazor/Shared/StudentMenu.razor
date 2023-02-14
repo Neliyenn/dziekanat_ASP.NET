@@ -1,0 +1,115 @@
+﻿@using DziekanatBlazor.Models
+
+@inject NavigationManager NavManager
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+
+<div class="container">
+    <div class="menu">
+        <img src="/img/avatar.png" alt="">
+
+        <p class="name">@user.FirstName @user.LastName</p>
+
+        <p class="index">@student.nr_albumu</p>
+
+        <p class="kierunek">@student.kierunek</p>
+
+        <div class="navigation">
+
+            <div class="button">
+                <NavLink href="student_dane">
+                    <span>Twoje dane</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="student_tok">
+                    <span>Tok studiów</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="student_przedmioty">
+                    <span>Przedmioty i oceny</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="">
+                    <span>Finanse</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="">
+                    <span>Teczka</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="">
+                    <span>Praca dyplomowa</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="">
+                    <span>Stypendia</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="">
+                    <span>Praktyki</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="/student_konto">
+                    <span>Konto, zmiana hasła</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="">
+                    <span>Znajdź prowadzącego</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="">
+                    <span>Sondy</span>
+                </NavLink>
+            </div>
+
+            <div class="button">
+                <NavLink href="">
+                    <span>Pliki do pobrania</span>
+                </NavLink>
+            </div>
+
+            <hr>
+
+            <div class="button logout">
+                <NavLink href="">
+                    <span @onclick="LogOut">Wyloguj się</span>
+                </NavLink>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code{
+
+    [Parameter]
+    public User user {get;set;}
+
+    [Parameter]
+    public Student student {get;set;}
+
+
+    async Task LogOut(){
+        await sessionStorage.RemoveItemAsync("User");
+        NavManager.NavigateTo("/");
+    }
+    
+}

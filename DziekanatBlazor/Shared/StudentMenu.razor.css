@@ -1,0 +1,80 @@
+.container {
+    display: flex;
+    min-height: calc(100vh - 6.481481481481482vh - 115px);
+}
+
+.menu {
+    width: 421px;
+    background: #F1F2F4;
+    min-height: calc(100vh - 6.481481481481482vh - 115px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu img {
+    height: 120px;
+    width: 120px;
+    margin-top: 35px;
+}
+
+.menu .name {
+    margin-top: 15px;
+    font-family: poppins-regular;
+    text-transform: capitalize;
+}
+
+.menu .index {
+    font-family: poppins-regular;
+    margin-top: 5px;
+}
+
+.menu .kierunek {
+    font-family: poppins-regular;
+    margin-top: 5px;
+    text-transform: capitalize;
+}
+
+.menu .navigation {
+    width: 221px;
+    margin-top: 30px;
+}
+
+.menu .navigation .button {
+    width: 216px;
+    /* padding: 10px; */
+    border-radius: 6px;
+    background: #F8F8F8;
+    box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    margin-bottom: 8px;
+}
+
+.button span {
+    font-family: poppins-regular;
+    color: #000000;
+}
+
+.button:hover {
+    background-color: #E1E6ED !important;
+    cursor: pointer;
+}
+
+.menu .navigation hr {
+    margin-top: 55px;
+    margin-bottom: 55px;
+    width: 109%;
+    border: 2px solid #E1E6ED;
+}
+
+.menu .navigation .logout {
+    background-color: #ECA3A3;
+    margin-bottom: 44px;
+}
+
+.menu .navigation .logout:hover {
+    background-color: #FF5C5C !important;
+}

@@ -1,0 +1,76 @@
+﻿@page "/"
+@using System.Threading
+@using DziekanatBlazor.Models
+
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+
+<div class="container-index">
+    <h1>Witamy w wirtualnym dziekanacie</h1>
+    <h3>Serwis ten ułatwi Państwu uzyskanie wszelkich potrzebnych informacji związanych z wyższą uczelnią.</h3>
+    <div class="container-login">
+        <h3>Zaloguj się</h3>
+            <div class="inputs">
+                <label for="login">Login</label>
+                <input type="text" @bind="Login">
+            </div>
+
+            <div class="inputs">
+                <label for="password">Hasło</label>
+                <input type="password" @bind="Password">
+            </div>
+
+            <input type="submit" value="Zaloguj się" @onclick="UseLogin"> 
+        <a href="">Nie pamiętam hasła</a>
+        @if (error)
+        {
+            <p class="wrong_data">Niepoprawny login lub hasło</p>
+        }
+    </div>
+
+    <div class="container-announcements">
+        <h2>Ogłoszenia</h2>
+
+        <div class="announcements">
+            <div class="announcement"></div>
+            <div class="announcement"></div>
+        </div>
+    </div>
+</div>
+
+@functions {
+
+    bool error = false;
+    private string Login = "";
+    private string Password = "";
+    async Task UseLogin()
+    {
+        var status = await Http.GetAsync("https://localhost:5001/Login?login="+Login+"&password="+Password);
+        if(status.IsSuccessStatusCode){
+            var user = await Http.GetFromJsonAsync<User>("https://localhost:5001/Login?login="+Login+"&password="+Password);
+            await sessionStorage.SetItemAsync("User",user);
+            error = false;
+            NavManager.NavigateTo("/dashboard");
+        }else{
+            error = true;
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+            try{
+                User user = await sessionStorage.GetItemAsync<User>("User");
+                if(user.ID != 0){
+                    NavManager.NavigateTo("/dashboard");
+                }else{
+                    NavManager.NavigateTo("/");
+                }
+
+            }catch{
+                NavManager.NavigateTo("/");
+            }
+    }
+    
+}

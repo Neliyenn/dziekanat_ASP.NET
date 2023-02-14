@@ -1,0 +1,63 @@
+.content {
+    display: flex;
+    min-height: calc(100vh - 6.481481481481482vh - 115px);
+    width: calc(100vw - 421px);
+    flex-direction: column;
+    align-items: center;
+}
+
+.content .title {
+    width: 90%;
+    background: #E1E6ED;
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 14px;
+    text-align: center;
+    font-family: poppins-regular;
+    font-weight: 600;
+}
+
+.content .dane {
+    width: 90%;
+}
+
+.content .dane p {
+    font-family: poppins-regular;
+    font-weight: 1.5rem;
+    margin-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #E1E6ED;
+}
+
+.content .buttons {
+    display: flex;
+    width: 390px;
+    padding: 10px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    border-radius: 14px;
+    margin-top: 60px;
+    align-self: start;
+    margin-left: 4.5%;
+    justify-content: space-around;
+}
+
+.content .buttons button {
+    background: #F8F8F8;
+    border-radius: 6px;
+    border: 0;
+    font-family: poppins-regular;
+    font-size: 1.125rem;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.content .buttons button:hover {
+    background: #D6E0EE;
+    cursor: pointer;
+}
+
+.content .buttons button.active {
+    background: #D6E0EE;
+    color: #284163;
+}
