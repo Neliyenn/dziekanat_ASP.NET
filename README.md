@@ -13,7 +13,7 @@ Zakładka "Twoje dane" jest podzielona na trzy "podzakładki" segregujące te in
 
 Zawierają one dane personalne studenta m.in. jego PESEL, płeć i obywatelstwo, dane adresowe studenta wraz z jego emailem oraz numerem telefonu oraz informacje o wykształceniu, roku ukończenia szkoły, rodzaju matury, itp.
 
-W zakładce "Konto i zmiana hasła" student ma możliwość zmiany hasła do swojego konta. 
+W zakładce "Konto, zmiana hasła" student ma możliwość zmiany hasła do swojego konta. 
 
 ![image](https://user-images.githubusercontent.com/65779777/218817491-ef56d2c7-4c71-4af0-915d-9860fc6c0f30.png)
 
