@@ -1,6 +1,6 @@
 # dziekanat_ASP.NET
 
-Aplikacja Dziekanat zosta³a napisana za pomoc¹ ASP.NET, programowania internetowego przy u¿yciu sk³adni Razor. 
+Aplikacja Dziekanat zosta³a napisana za pomoca ASP.NET, programowania internetowego przy u¿yciu sk³adni Razor. 
 
 ## Dzia³anie aplikacji 
 Aplikacja odwzorowuje dzia³anie Wirtualnego Dziekanatu uczelni. Student po zalogowaniu siê do serwisu mo¿e podejrzeæ swoje dane, plan zajêæ i przedmioty oraz 
