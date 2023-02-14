@@ -3,7 +3,13 @@
 Aplikacja Dziekanat zosta³a napisana za pomoca ASP.NET, programowania internetowego przy u¿yciu sk³adni Razor. 
 
 ## Dzia³anie aplikacji 
-Aplikacja odwzorowuje dzia³anie Wirtualnego Dziekanatu uczelni. Student po zalogowaniu siê do serwisu mo¿e podejrzeæ swoje dane, plan zajêæ i przedmioty oraz 
+Aplikacja odwzorowuje dzia³anie Wirtualnego Dziekanatu uczelni. Student po zalogowaniu siê do serwisu mo¿e podejrzeæ swoje dane, dane dotycz¹ce studiów, które odbywa, oraz swoje przedmioty i oceny. 
+
+Zak³adka "Twoje dane" jest podzielona na trzy "podzak³adki" segreguj¹ce informacje. 
+
+![image](https://user-images.githubusercontent.com/65779777/218808834-05d34364-9b43-438f-abf3-aff39d56d45e.png)
+
+Zawieraj¹ one dane personalne studenta m.in. jego pesel, p³ec i obywatelstwo, dane adresowe studenta wraz z jego emailem ora znumerem telefonu oraz informacje o wykszta³ceniu, rok ukoñczenia szko³y, rodzaj matury, itp.
 
 ## Uruchomienie aplikacji
 Repozytorium aplikacji nale¿y pobraæ, a nastêpnie rozpakowacæ i otworzyæ w programie Visual Studio Community Edition. 
