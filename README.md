@@ -13,6 +13,12 @@ Zakładka "Twoje dane" jest podzielona na trzy "podzakładki" segregujące te in
 
 Zawierają one dane personalne studenta m.in. jego PESEL, płeć i obywatelstwo, dane adresowe studenta wraz z jego emailem oraz numerem telefonu oraz informacje o wykształceniu, roku ukończenia szkoły, rodzaju matury, itp.
 
+W zakładce "Konto i zmiana hasła" student ma możliwość zmiany hasła do swojego konta. 
+
+![image](https://user-images.githubusercontent.com/65779777/218817491-ef56d2c7-4c71-4af0-915d-9860fc6c0f30.png)
+
+UWAGA: Zmiana hasła jest stała. Każdorazowe logowanie po uruchomieniu aplikacji na konto danego studenta będzie musiało odbywać się za pomocą nowego hasła, inaczej student nie zostanie zalogowany. 
+
 
 ## Uruchomienie aplikacji
 
@@ -47,6 +53,11 @@ LUB
 
 Login : `student2`
 Hasło : `student2`
+
+LUB 
+
+Login : `student3`
+Hasło : `student3`
 
 POLE LOGINU I HASŁA JEST CASE SENSITIVE. Należy zwrócić uwagę na poprawność wpisywanych danych również od strony wielkich i małych liter. 
 
